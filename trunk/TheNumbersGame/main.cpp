@@ -15,50 +15,68 @@ using namespace std;
 
 //Function factor//
 
-int factor (int y)
+void factor (int y)
 {
 	int z=2;
 
 	while (1==1)
 	{
-	if ((y%z) != 0)
+		if ((y%z) != 0)
 		{
-		z++;
+			z++;
 		}
-
-	else
+		else
 		{
+			numberSet[i]=(y/z);
+			//Prime factor condition//
+			if (y==z && numberSet[0]==1)
+			{
+				numberSet[0]=z;
+				numberSet[1]=1;
+				cout<< "The value of z is:";
+				cout<<z<<endl;
+				z++;
 
-
-		numberSet[i]=(y/z);
-		//Prime factor condition//
-		if (y==z&& numberSet[0]==1)
+			}
+			else
+			{
+				i++;
+				z++;
+			}
+		}
+		if (z>y)
+		{
+			if ((y%z) != 0)
+			{
+				z++;
+			}
+			else
+			{
+				numberSet[i]=(y/z);
+				//Prime factor condition//
+				if (y==z && numberSet[0]==1)
 				{
 					numberSet[0]=z;
 					numberSet[1]=1;
 					cout<< "The value of z is:";
 					cout<<z<<endl;
 					z++;
-
 				}
-		else
-		{
-		i++;
-		z++;
+				else
+				{
+					i++;
+					z++;
+				}
+			}
+			if (z>y)
+			{
+				break;
+			}
 
-
-
+			break;
 		}
-		}
-	if (z>y)
-	{
-		break;
 	}
-
-
-
-	}
-	}
+}
 
 
 int main(void)
@@ -72,30 +90,31 @@ int main(void)
 	int x;
 	int q;
 
-	cout<< "Type a number in"<< endl;
+	cout << "Type a number in"<< endl;
 
-	 cin>> x;
+	cin >> x;
 
-	factor (x);
+	factor(x);
 
 	//Generating the numbers to be used//
 
-	srand (time(0));
-	q= rand ()%10;
-	i=0;
+	srand(time(NULL));
+	q = rand()%10;
+	i = 0;
 
 	//Giving a value to a//
 
-	a= numberSet [0];
+	a = numberSet[0];
 
+	//NOT NEEDED
 	//Giving a value for b and c//
-	b=90;
-	c=15;
+	//b = 90;
+	//c = 15;
 
 	while (1==1)
 	{
-		b= rand ()%10;
-		c= rand ()%10;
+		b = rand()%10;
+		c = rand()%10;
 
 		if (a%2==0&&(b-c)==2)
 		{
@@ -104,10 +123,10 @@ int main(void)
 
 		//If x is odd, and is not prime//
 		if (a%2!=0&&(a*(b+c))==(x))
-				{
+		{
 			cout<<"This is odd shit bro."<<endl;
 			break;
-				}
+		}
 	}
 
 
@@ -126,20 +145,19 @@ int main(void)
 
 	while (i<7)
 	{
-
-	cout<< numberSet [i]<<endl;
-	i++;
+		cout<< numberSet [i]<<endl;
+		i++;
 	}
 
-	cout<< "Here are your numbers:"<<endl;
-	cout<< a<<endl;
-	cout<< b<< endl;
-	cout<< c<<endl;
-	cout<< d <<endl;
+	cout << "Here are your numbers:"<<endl;
+	cout << a << endl;
+	cout << b << endl;
+	cout << c << endl;
+	cout << d << endl;
 
 	//User tries to solve for his number//
-	cout<< "Solve for:";
-	cout<< x<<endl;
+	cout << "Solve for:";
+	cout << x << endl;
 
 	//Condition for winning game//
 	int p=0;
