@@ -72,8 +72,6 @@ void factor (int y)
 			{
 				break;
 			}
-
-			break;
 		}
 	}
 }
