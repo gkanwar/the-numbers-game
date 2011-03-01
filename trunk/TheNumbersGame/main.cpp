@@ -2,6 +2,7 @@
  * main.cpp
  *
  *  Created on: Feb 22, 2011
+ *  Updated March 1st 2011.
  *      Author: looterguf,Fuzzy,RCheuTheDiamondLeagueProtoss
  */
 
@@ -72,6 +73,8 @@ void factor (int y)
 			{
 				break;
 			}
+
+			break;
 		}
 	}
 }
@@ -147,11 +150,11 @@ int main(void)
 		i++;
 	}
 
-	cout << "Here are your numbers:"<<endl;
-	cout << a << endl;
-	cout << b << endl;
-	cout << c << endl;
-	cout << d << endl;
+	//cout << "Here are your numbers:"<<endl;
+	//cout << a << endl;
+	//cout << b << endl;
+	//cout << c << endl;
+	//cout << d << endl;
 
 	//User tries to solve for his number//
 	cout << "Solve for:";
@@ -159,51 +162,117 @@ int main(void)
 
 	//Condition for winning game//
 	int p=0;
-	int e; //User input variable//
-	int f; //User input variable//
-	int g; //Number 2//
+	int j=0; //Filter checker
+	int l=0; //Filter checker//
+	int w=0; //Condition for loop. Ignore otherwise//
+	int input1; //User input variable//
+	int input2; //User input variable//
+	int input3;
+	int placeHolder2; //Number 2//
+
+	//Base number sets//
+		//Change 4 to n and n/2 once scalable difficulty is created//
+		int base [4];
+		int baseFilter [4];
+
+		base [0]=a;
+		base [1]=b;
+		base [2]=c;
+		base[3]=d;
+
+		baseFilter[0]=1;
+		baseFilter[1]=1;
+		baseFilter[2]=1;
+		baseFilter[3]=1;
+
+		//Intermediate//
+		int intermediate[4];
+		int intermediateFilter[4];
+		intermediateFilter[0]=0;
+		intermediateFilter[1]=0;
+		intermediateFilter[2]=0;
+		intermediateFilter[3]=0;
+
 	while (p!=x)
 	{
-		cout<< "Pick a number"<<endl;
-		cin>> e;
-		if (e!=a&&e!=b&&e!=c&&e!=d)
-		{
-			cout<<"Wrong number faggot. Try again n00b."<<endl;
-		}
-		else
-		{
-		cout<<"Select an operation"<<endl;
-		cout<<"1= Multiplication"<<endl;
-		cout<<"2=Division"<<endl;
-		cout<<"3=Addition"<<endl;
-		cout<<"4=Subtraction"<<endl;
-		cin>> f;
 
-		if (f==1)
+		while (w==0)
 		{
-			g=e*f;
-		}
 
-		if (f==2)
+
+		cout<< "Here are your numbers"<<endl;
+
+		while (j<4&&l<4)
 		{
-			g=e/f;
+
+		if (baseFilter[j]!=0)
+		{
+			cout<< base[j]<<endl;
+			j++;
+			//if (j==1)
+			{
+				//cout<<endl;
+			}
 		}
 
-		if (f==3)
+		if (intermediateFilter[l]!=0)
 		{
-			g=e+f;
+			cout<< intermediate[l]<<endl;
+			l++;
+			//if (l==1)
+			{
+				//cout <<endl;
 
+			}
+		}
 		}
 
-		if (f==4)
+
+
+		cout<< endl;
+		cout<<"Pick a number"<<endl;
+
+		cin>>input1;
+
+		if (input1!=a&&input1!=b&&input1!=c&&input1!=d)
 		{
-			g=e-f;
+			cout<<"Wrong number faggot, try again"<<endl;
+		}
 
+		if (input1==a||input1==b||input1==c||input1==d)
+		{
+			w=1;
+			cout<<"Select an operation"<<endl;
 		}
 		}
-		cout<< "Result:";
-		cout<< g<<endl;
-		cout<<"Next number"<<endl;
+
+		//User picks an operation//
+				cout<<"1=Multiplication"<<endl;
+				cout<<"2=Division"<<endl;
+				cout<<"3=Addition"<<endl;
+				cout<<"4=Subtraction"<<endl;
+
+				cin>> input2;
+
+
+				//Picking a second number//
+				cout<<"Select a second number"<<endl;
+				w=0;
+				cin>> input3;
+				if (input3!=a&&input3!=b&&input3!=c&&input3!=d)
+						{
+							cout<<"Wrong number faggot, try again"<<endl;
+						}
+
+						if (input3==a||input3==b||input3==c||input3==d)
+						{
+							w=1;
+
+						}
+					//Operation is applied to input 1 and input3//
+
+
+
 
 
 	}
